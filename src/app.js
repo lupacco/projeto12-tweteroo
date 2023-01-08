@@ -38,16 +38,16 @@ app.get("/tweets", (req, res) => {
 
 app.post("/tweets", (req, res) => {
     const tweet = req.body
+    const { user } = req.headers
 
-    const userIsRegistered = users.find(user => {user.username === tweet.username})
-    console.log(users[1])
+    const userIsRegistered = users.find(item => item.username === tweet.username)
+    
     if(!userIsRegistered){
         return res.status(401).send("UNAUTHORAZED")
     }
 
     tweets.push(tweet)
-    res.status(201).send("OK")
-    console.log(tweets)
+    return res.status(201).send("OK")
 })
 
 
