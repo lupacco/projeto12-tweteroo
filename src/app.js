@@ -33,6 +33,9 @@ app.post("/sign-up", (req, res) => {
 })
 
 app.get("/tweets", (req, res) => {
+    if(tweets.length === 0){
+        return res.send([])
+    }
     res.send(users[1])
 })
 
