@@ -27,6 +27,48 @@ const tweets = [
         username: "eaibebe",
         tweet: "eu amo o bebeeeeeee"
     }
+    ,
+    {
+        username: "eaibebe",
+        tweet: "eu amo o bebeeeeeee3"
+    }
+    ,
+    {
+        username: "eaibebe",
+        tweet: "eu amo o bebeeeeeee4"
+    }
+    // ,
+    // {
+    //     username: "eaibebe",
+    //     tweet: "eu amo o bebeeeeeee5"
+    // }
+    // ,
+    // {
+    //     username: "eaibebe",
+    //     tweet: "eu amo o bebeeeeeee6"
+    // }
+    // ,
+    // {
+    //     username: "eaibebe",
+    //     tweet: "eu amo o bebeeeeeee7"
+    // }
+    // ,
+    // {
+    //     username: "eaibebe",
+    //     tweet: "eu amo o bebeeeeeee8"
+    // },
+    // {
+    //     username: "eaibebe",
+    //     tweet: "eu amo o bebeeeeeee9"
+    // },
+    // {
+    //     username: "eaibebe",
+    //     tweet: "eu amo o bebeeeeeee10"
+    // },
+    // {
+    //     username: "eaibebe",
+    //     tweet: "eu amo o bebeeeeeee11"
+    // }
 ]
 
 function getLastTweets(arr, quantity){
@@ -58,7 +100,8 @@ app.post("/sign-up", (req, res) => {
 
     if(!user.username || !user.avatar) return res.status(400).send("Todos os campos são obrigatórios!")
 
-    if(typeof user.name !== "string" || typeof user.avatar !== "string") return res.sendStatus(400)
+
+    if(typeof(user.username) !== "string" || typeof(user.avatar) !== "string") return res.sendStatus(400)
 
     users.push(req.body)
     res.status(201).send('OK')
@@ -70,6 +113,7 @@ app.get("/tweets", (req, res) => {
     if(tweets.length > 10){
         const lastTweets = getLastTweets(tweets, 10)
         const tweetsWithAvatar = addAvatarToTweets(lastTweets)
+        console.log(tweetsWithAvatar)
         return res.send(tweetsWithAvatar)
     }
     res.send(addAvatarToTweets(tweets.reverse()))
