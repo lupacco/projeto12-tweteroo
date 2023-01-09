@@ -15,10 +15,10 @@ const users = [
 ]
 
 const tweets = [
-    // {
-    //     username: "bobesponja",
-    //     tweet: "eu amo o hub"
-    // }
+    {
+        username: "bobesponja",
+        tweet: "eu amo o hub"
+    }
 ]
 
 function getLastTweets(arr, quantity){
@@ -31,13 +31,15 @@ function getLastTweets(arr, quantity){
 function addAvatarToTweets(tweets){
     if(!tweets) return
 
-    const tweetsWithAvatar = tweets.map(item => {
+    const tweetsWithAvatar = []
+
+    tweets.forEach(item => {
         const userAvatar = users.find(user => user.username === item.username)
-        return {
+        tweetsWithAvatar.push({
             username: item.username,
-            avatar: userAvatar,
+            avatar: userAvatar.avatar,
             tweet: item.tweet
-        }
+        })
     })
     
     return tweetsWithAvatar
