@@ -33,10 +33,8 @@ app.post("/sign-up", (req, res) => {
 })
 
 app.get("/tweets", (req, res) => {
-    if(tweets.length === 0){
-        return res.send([])
-    }
-    res.send(users[1])
+    
+    res.send(tweets)
 })
 
 app.post("/tweets", (req, res) => {
@@ -57,7 +55,7 @@ app.post("/tweets", (req, res) => {
 
 const PORT = 5000
 
-app.listen(PORT, () => {console.log(`SERVIDOR RODANDO NA PORTA: ${PORT}`)})
+app.listen(PORT, () => {console.log(`RUNNING ON PORT: ${PORT}`)})
 
 
 // 200: Ok => Significa que deu tudo certo com a requisição
