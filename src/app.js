@@ -9,16 +9,16 @@ const users = [
 ]
 
 const tweets = [
-    {
-        username: "bobesponja",
-        tweet: "eu amo o hub"
-    }
+    // {
+    //     username: "bobesponja",
+    //     tweet: "eu amo o hub"
+    // }
 ]
 
 const app = express()
 
 app.use(cors())
-app.use(json())
+app.use(express.json())
 
 app.post("/sign-up", (req, res) => {
     const user = req.body
