@@ -79,7 +79,7 @@ function getLastTweets(arr, quantity){
 }
 
 function addAvatarToTweets(tweets){
-    if(!tweets) return
+    if(!tweets) return []
 
     const tweetsWithAvatar = []
 
