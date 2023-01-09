@@ -73,6 +73,9 @@ app.get("/tweets", (req, res) => {
 
 app.post("/tweets", (req, res) => {
     const tweet = req.body
+
+    if(!tweet || typeof tweet !== "string") return res.sendStatus(400)
+
     const { user } = req.headers
 
     const userIsRegistered = users.find(item => item.username === tweet.username)
