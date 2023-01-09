@@ -11,6 +11,10 @@ const users = [
     {
         username: "bobesponja",
         avatar: "https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info"
+    },
+    {
+        username: "eaibebe",
+        avatar: "https://series.band.uol.com.br/wp-content/uploads/2014/05/queixo-rubro-300x300-1.jpg"
     }
 ]
 
@@ -18,6 +22,10 @@ const tweets = [
     {
         username: "bobesponja",
         tweet: "eu amo o hub"
+    },
+    {
+        username: "eaibebe",
+        tweet: "eu amo o bebeeeeeee"
     }
 ]
 
@@ -48,9 +56,10 @@ function addAvatarToTweets(tweets){
 app.post("/sign-up", (req, res) => {
     const user = req.body
 
-    if(!user.username || !user.avatar){
-        return res.status(401).send("Todos os campos são obrigatórios!")
-    }
+    if(!user.username || !user.avatar) return res.status(400).send("Todos os campos são obrigatórios!")
+
+    if(typeof user.name !== "string" || typeof user.avatar !== "string") return res.sendStatus(400)
+
     users.push(req.body)
     res.status(201).send('OK')
 
