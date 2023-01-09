@@ -28,6 +28,21 @@ function getLastTweets(arr, quantity){
     return lastTweets
 }
 
+function addAvatarToTweets(tweets){
+    if(!tweets) return
+
+    const tweetsWithAvatar = tweets.map(item => {
+        const userAvatar = users.find(user => user.username === item.username)
+        return {
+            username: item.username,
+            avatar: userAvatar,
+            tweet: item.tweet
+        }
+    })
+    
+    return tweetsWithAvatar
+}
+
 app.post("/sign-up", (req, res) => {
     const user = req.body
 
@@ -43,9 +58,10 @@ app.post("/sign-up", (req, res) => {
 app.get("/tweets", (req, res) => {
     if(tweets.length > 10){
         const lastTweets = getLastTweets(tweets, 10)
-        return res.send(lastTweets)
+        const tweetsWithAvatar = addAvatarToTweets(lastTweets)
+        return res.send(tweetsWithAvatar)
     }
-    res.send(tweets.reverse())
+    res.send(addAvatarToTweets(tweets.reverse()))
 })
 
 app.post("/tweets", (req, res) => {
