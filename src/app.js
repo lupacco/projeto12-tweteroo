@@ -18,58 +18,7 @@ const users = [
     }
 ]
 
-const tweets = [
-    {
-        username: "bobesponja",
-        tweet: "eu amo o hub"
-    },
-    {
-        username: "eaibebe",
-        tweet: "eu amo o bebeeeeeee"
-    }
-    ,
-    {
-        username: "eaibebe",
-        tweet: "eu amo o bebeeeeeee3"
-    }
-    ,
-    {
-        username: "eaibebe",
-        tweet: "eu amo o bebeeeeeee4"
-    }
-    // ,
-    // {
-    //     username: "eaibebe",
-    //     tweet: "eu amo o bebeeeeeee5"
-    // }
-    // ,
-    // {
-    //     username: "eaibebe",
-    //     tweet: "eu amo o bebeeeeeee6"
-    // }
-    // ,
-    // {
-    //     username: "eaibebe",
-    //     tweet: "eu amo o bebeeeeeee7"
-    // }
-    // ,
-    // {
-    //     username: "eaibebe",
-    //     tweet: "eu amo o bebeeeeeee8"
-    // },
-    // {
-    //     username: "eaibebe",
-    //     tweet: "eu amo o bebeeeeeee9"
-    // },
-    // {
-    //     username: "eaibebe",
-    //     tweet: "eu amo o bebeeeeeee10"
-    // },
-    // {
-    //     username: "eaibebe",
-    //     tweet: "eu amo o bebeeeeeee11"
-    // }
-]
+const tweets = []
 
 function getLastTweets(arr, quantity){
     let lastTweets = arr.reverse()
