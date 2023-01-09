@@ -65,7 +65,10 @@ app.get("/tweets", (req, res) => {
         console.log(tweetsWithAvatar)
         return res.send(tweetsWithAvatar)
     }
-    res.send(addAvatarToTweets(tweets.reverse()))
+
+    const reversedTweets = addAvatarToTweets([...tweets].reverse())
+
+    res.send(reversedTweets)
 })
 
 app.post("/tweets", (req, res) => {
