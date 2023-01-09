@@ -1,6 +1,12 @@
 import express, {json} from "express"
 import cors from "cors"
 
+const app = express()
+
+app.use(cors())
+app.use(express.json())
+
+
 const users = [
     {
         username: "bobesponja",
@@ -15,10 +21,12 @@ const tweets = [
     // }
 ]
 
-const app = express()
+function getLastTweets(arr, quantity){
+    let lastTweets = arr.reverse()
+    lastTweets = lastTweets.slice(0, 10)
 
-app.use(cors())
-app.use(express.json())
+    return lastTweets
+}
 
 app.post("/sign-up", (req, res) => {
     const user = req.body
@@ -33,8 +41,11 @@ app.post("/sign-up", (req, res) => {
 })
 
 app.get("/tweets", (req, res) => {
-    
-    res.send(tweets)
+    if(tweets.length > 10){
+        const lastTweets = getLastTweets(tweets, 10)
+        return res.send(lastTweets)
+    }
+    res.send(tweets.reverse())
 })
 
 app.post("/tweets", (req, res) => {
